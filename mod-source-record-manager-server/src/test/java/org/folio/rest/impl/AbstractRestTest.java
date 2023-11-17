@@ -87,7 +87,7 @@ import static org.folio.services.util.EventHandlingUtil.constructModuleName;
  */
 public abstract class AbstractRestTest {
 
-  public static final String POSTGRES_IMAGE = "postgres:12-alpine";
+  public static final String POSTGRES_IMAGE = System.getenv().getOrDefault("TESTCONTAINERS_POSTGRES_IMAGE", "postgres:12-alpine");
   private static PostgreSQLContainer<?> postgresSQLContainer;
 
   private static final String JOB_EXECUTIONS_TABLE_NAME = "job_execution";
